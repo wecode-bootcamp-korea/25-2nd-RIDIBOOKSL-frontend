@@ -1,7 +1,7 @@
-import React from 'react';
+const IP = 'http://10.5.58.6';
 
-const config = () => {
-  return <div></div>;
+const API = {
+  login: `${IP}/login`,
 };
 
-export default config;
+export default API;

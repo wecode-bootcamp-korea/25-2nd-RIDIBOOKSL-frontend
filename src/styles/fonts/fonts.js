@@ -1,11 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
-import AppleSDGothicNeo from './AppleSDGothicNeo.woff';
+import AppleSDGothicNeoL from './AppleSDGothicNeoL.ttf';
 
-export default createGlobalStyle`		      
-  @font-face {
-    font-family: 'Font Name';	
-    src: local('Font Name'),    
-    url(${AppleSDGothicNeo} format('woff');
-    font-weight: 300; 		
-    font-style: normal;
-    `;
+export default createGlobalStyle`
+    @font-face {
+      font-family: 'Font Name';
+      src:local('Font Name'),
+      url(${AppleSDGothicNeoL}) format('ttf');
+      font-weight: 300;
+      font-style: normal;
+    }`;
