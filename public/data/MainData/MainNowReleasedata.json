@@ -1,0 +1,76 @@
+{
+  "Release": [
+    {
+      "id": 1,
+      "url": "#",
+      "image": "/images/Main/bookCover/cover1.jpg",
+      "title": "바쁘다 바빠 현대사회",
+      "author": "각박한 세상",
+      "patch": 1
+    },
+    {
+      "id": 2,
+      "url": "#",
+      "image": "/images/Main/bookCover/cover2.jpg",
+      "title": "내 남자친구에게",
+      "author": "핑클",
+      "patch": 2
+    },
+    {
+      "id": 3,
+      "url": "#",
+      "image": "/images/Main/bookCover/cover3.jpg",
+      "title": "여름에 일어나는 전쟁은?",
+      "author": "더워",
+      "patch": 1
+    },
+    {
+      "id": 4,
+      "url": "#",
+      "image": "/images/Main/bookCover/cover4.jpg",
+      "title": "음치를 위한 노래 가이드",
+      "author": "함부로 마이크 잡지마",
+      "patch": 2
+    },
+    {
+      "id": 5,
+      "url": "#",
+      "image": "/images/Main/bookCover/cover5.jpg",
+      "title": "우유가 쓰러지면?",
+      "author": "아야",
+      "patch": 2
+    },
+    {
+      "id": 6,
+      "url": "#",
+      "image": "/images/Main/bookCover/cover6.jpg",
+      "title": "소나무가 삐지면?",
+      "author": "칫솔",
+      "patch": 0
+    },
+    {
+      "id": 7,
+      "url": "#",
+      "image": "/images/Main/bookCover/cover7.jpg",
+      "title": "논리적인 사람이 총을 쏘면?",
+      "author": "타당타당",
+      "patch": 1
+    },
+    {
+      "id": 8,
+      "url": "#",
+      "image": "/images/Main/bookCover/cover8.jpg",
+      "title": "딸이 기분이 좋으면?",
+      "author": "딸기모찌",
+      "patch": 1
+    },
+    {
+      "id": 9,
+      "url": "#",
+      "image": "/images/Main/bookCover/cover9.jpg",
+      "title": "신데렐라가 잠을 못자면?",
+      "author": "모짜렐라",
+      "patch": 2
+    }
+  ]
+}
