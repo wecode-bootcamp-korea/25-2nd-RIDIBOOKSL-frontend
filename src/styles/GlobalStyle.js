@@ -6,6 +6,10 @@ const GlobalStyle = createGlobalStyle`
 
 	* {
     box-sizing: border-box;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.03em;
   }
 `;
 
