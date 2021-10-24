@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "img": "/images/Main/bookCover/cover1.jpg",
+    "message": "신간 〈느려도 괜찮아〉 출간!",
+    "url": "/books/1",
+    "date": "Oct 24 2021"
+  },
+  {
+    "id": 2,
+    "img": "/images/Main/bookCover/cover4.jpg",
+    "message": "〈핑클〉 작가의 신간이 궁금하다면?",
+    "url": "/books/1",
+    "date": "Oct 21 2021 "
+  },
+  {
+    "id": 3,
+    "img": "/images/Main/bookCover/cover3.jpg",
+    "message": "여름에 일어나는 전쟁은? 〈더 워〉 보러가기 →",
+    "url": "/books/1",
+    "date": "Oct 15 2021 "
+  }
+]
