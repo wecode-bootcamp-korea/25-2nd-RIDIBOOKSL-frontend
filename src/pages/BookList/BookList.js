@@ -1,26 +1,66 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import BookListForm from '../../components/BookListForm/BookListForm';
 
 const BookList = () => {
   const { id } = useParams();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+
   const selectedMainCategory = Math.floor(id / 100) * 100;
   const selectedSubCategory = id - selectedMainCategory;
+
   const [cagetoryList, setCategoryList] = useState([]);
+  const [mainCategoryName, setMainCategoryName] = useState('');
+  const [subCategoryName, setSubCategoryName] = useState('');
+  const [bookList, setBookList] = useState([]);
+  const [allBooksLeng, setAllBooksLeng] = useState(0);
   const [viewDirection, setViewDirection] = useState('row');
 
+  const bookList_fetch_api =
+    `http://10.58.1.63:8000/products?menu=${selectedMainCategory / 100}` +
+    (selectedSubCategory > 0 ? `&category=${selectedSubCategory}` : '');
+  const bookList_param = params.get('order')
+    ? `descending=${params.get('order')}&offset=${
+        (params.get('page') - 1) * 20
+      }&limit=20`
+    : 'descending=0&offset=0&limit=20';
+  const bookList_order_param = params.get('order')
+    ? `descending=${params.get('order')}`
+    : 'descending=0';
+
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     fetch('/data/CategoryList.json', { method: 'GET' })
       .then(res => res.json())
       .then(data => setCategoryList(data));
-  }, []);
+
+    fetch(`${bookList_fetch_api}&${bookList_order_param}`, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(res => {
+        setAllBooksLeng(res.products.length);
+      });
+
+    fetch(`${bookList_fetch_api}&${bookList_param}`, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(res => {
+        setMainCategoryName(res.menu_name);
+        setSubCategoryName(res.category_name);
+        setBookList(res.products);
+      });
+  }, [bookList_fetch_api, bookList_order_param, bookList_param, location]);
 
   return (
     <Background>
       <Container>
         <ContentsMenu>
-          <MainCategoryList>
+          <ul>
             {cagetoryList.map(mainCategory => (
               <MainCategory key={mainCategory.id}>
                 <MainCategoryBtn
@@ -32,27 +72,27 @@ const BookList = () => {
                 {mainCategory.id === selectedMainCategory && (
                   <SubCategoryList>
                     {mainCategory.subMenu.map(subCategory => (
-                      <SubCategory key={subCategory.id}>
+                      <li key={subCategory.id}>
                         <SubCategoryBtn
                           to={`/category/${mainCategory.id + subCategory.id}`}
                           selected={subCategory.id === selectedSubCategory}
                         >
                           {subCategory.name}
                         </SubCategoryBtn>
-                      </SubCategory>
+                      </li>
                     ))}
                   </SubCategoryList>
                 )}
               </MainCategory>
             ))}
-          </MainCategoryList>
+          </ul>
         </ContentsMenu>
         <ContentsPage>
           <PageTitle>
             <MainTitle isSelectedSub={!!selectedSubCategory}>
               <Link to={`/category/${selectedMainCategory}`}>
                 <i className="fas fa-book-open" />
-                소설
+                {mainCategoryName}
               </Link>
             </MainTitle>
             {selectedSubCategory > 0 && (
@@ -60,7 +100,7 @@ const BookList = () => {
                 <MainToSub>
                   <i className="fas fa-chevron-right" />
                 </MainToSub>
-                <SubTitle>한국 소설</SubTitle>
+                <p>{subCategoryName}</p>
               </>
             )}
           </PageTitle>
@@ -77,7 +117,11 @@ const BookList = () => {
               </button>
             </ViewSelection>
           </ViewSelectionList>
-          <BookListForm viewDirection={viewDirection} />
+          <BookListForm
+            bookList={bookList}
+            viewDirection={viewDirection}
+            allBooksLeng={allBooksLeng}
+          />
         </ContentsPage>
       </Container>
     </Background>
@@ -134,8 +178,6 @@ const ContentsMenu = styled.div`
   }
 `;
 
-const MainCategoryList = styled.ul``;
-
 const MainCategory = styled.li`
   margin: 5px 0;
 `;
@@ -160,8 +202,6 @@ const MainCategoryBtn = styled(Link)`
 const SubCategoryList = styled.ul`
   margin: 5px 0 10px 0;
 `;
-
-const SubCategory = styled.li``;
 
 const SubCategoryBtn = styled(Link)`
   display: block;
@@ -208,8 +248,6 @@ const MainToSub = styled.span`
   font-size: 16px;
   line-height: 15px;
 `;
-
-const SubTitle = styled.p``;
 
 const Line = styled.div`
   margin-top: 5px;
