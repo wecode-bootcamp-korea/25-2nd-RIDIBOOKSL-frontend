@@ -2,13 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const PATCHES = {
-  1: (
-    <DiscountLabel>
-      10<span>%</span>
-    </DiscountLabel>
-  ),
-  2: <RentalLabel>대여</RentalLabel>,
+const selectPatch = num => {
+  switch (num) {
+    case 1:
+      return (
+        <DiscountLabel>
+          10<span>%</span>
+        </DiscountLabel>
+      );
+    case 2:
+      return <RentalLabel>대여</RentalLabel>;
+    default:
+      return null;
+  }
 };
 
 const BookItem = ({ book, viewDirection }) => {
@@ -16,7 +22,7 @@ const BookItem = ({ book, viewDirection }) => {
     <Book viewDirection={viewDirection}>
       <ThumbnailWrapper>
         <Thumbnail to={`/books/${book.book_id}`}>
-          {book.patch > 0 && PATCHES[book.patch]}
+          {selectPatch(book.patch)}
           <img src={`${book.book_thumbnail}`} alt="책 표지" />
         </Thumbnail>
       </ThumbnailWrapper>

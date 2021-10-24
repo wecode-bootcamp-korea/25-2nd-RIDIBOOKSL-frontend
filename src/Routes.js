@@ -15,11 +15,11 @@ const Routes = () => {
       <Switch>
         <Route exact path="/" component={Main} />
         <Route exact path="/search" component={Search} />
+        <Route exact path="/category" component={Category} />
         <Route exact path="/category/:id" component={BookList} />
         <PrivateRoute exact path="/notification" component={Main} />
         <PrivateRoute exact path="/cart" component={Main} />
         <PrivateRoute exact path="/account" component={Main} />
-        <Route exact path="/category" component={Category} />
       </Switch>
       <Footer />
     </Router>
