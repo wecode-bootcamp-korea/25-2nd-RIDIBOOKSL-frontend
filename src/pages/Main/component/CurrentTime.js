@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CurrentTime = ({ currentHour, currentMinute }) => {
+const CurrentTime = ({ hour, min }) => {
   return (
     <TimeBox>
       <div>
         <i className="fas fa-clock" />
-        {` ${currentHour}시 ${currentMinute}분`}
+        {hour && min && ` ${hour}시 ${min}분`}
       </div>
     </TimeBox>
   );

@@ -27,6 +27,8 @@ export default MainIcons;
 const MainIconsBox = styled.section`
   display: flex;
   justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
 `;
 
 const IconsList = styled.ul`
@@ -34,7 +36,6 @@ const IconsList = styled.ul`
   display: flex;
   justify-content: space-between;
   padding: 24px 13px;
-  width: 60%;
   overflow: auto;
 `;
 const Icon = styled.div`

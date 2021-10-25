@@ -1,76 +1,185 @@
 {
   "Release": [
     {
-      "id": 1,
-      "url": "#",
-      "image": "/images/Main/bookCover/cover1.jpg",
-      "title": "바쁘다 바빠 현대사회",
+      "book_id": 1,
+      "thumbnail": "/images/Main/bookCover/cover1.jpg",
+      "book_name": "바쁘다 바빠 현대사회",
       "author": "각박한 세상",
       "patch": 1
     },
     {
-      "id": 2,
-      "url": "#",
-      "image": "/images/Main/bookCover/cover2.jpg",
-      "title": "내 남자친구에게",
+      "book_id": 2,
+      "thumbnail": "/images/Main/bookCover/cover2.jpg",
+      "book_name": "내 남자친구에게",
       "author": "핑클",
       "patch": 2
     },
     {
-      "id": 3,
-      "url": "#",
-      "image": "/images/Main/bookCover/cover3.jpg",
-      "title": "여름에 일어나는 전쟁은?",
+      "book_id": 3,
+      "thumbnail": "/images/Main/bookCover/cover3.jpg",
+      "book_name": "여름에 일어나는 전쟁은?",
       "author": "더워",
       "patch": 1
     },
     {
-      "id": 4,
-      "url": "#",
-      "image": "/images/Main/bookCover/cover4.jpg",
-      "title": "음치를 위한 노래 가이드",
+      "book_id": 4,
+      "thumbnail": "/images/Main/bookCover/cover4.jpg",
+      "book_name": "음치를 위한 노래 가이드",
       "author": "함부로 마이크 잡지마",
       "patch": 2
     },
     {
-      "id": 5,
-      "url": "#",
-      "image": "/images/Main/bookCover/cover5.jpg",
-      "title": "우유가 쓰러지면?",
+      "book_id": 5,
+      "thumbnail": "/images/Main/bookCover/cover5.jpg",
+      "book_name": "우유가 쓰러지면?",
       "author": "아야",
       "patch": 2
     },
     {
-      "id": 6,
-      "url": "#",
-      "image": "/images/Main/bookCover/cover6.jpg",
-      "title": "소나무가 삐지면?",
+      "book_id": 6,
+      "thumbnail": "/images/Main/bookCover/cover6.jpg",
+      "book_name": "소나무가 삐지면?",
       "author": "칫솔",
       "patch": 0
     },
     {
-      "id": 7,
-      "url": "#",
-      "image": "/images/Main/bookCover/cover7.jpg",
-      "title": "논리적인 사람이 총을 쏘면?",
+      "book_id": 7,
+      "thumbnail": "/images/Main/bookCover/cover7.jpg",
+      "book_name": "논리적인 사람이 총을 쏘면?",
       "author": "타당타당",
       "patch": 1
     },
     {
-      "id": 8,
-      "url": "#",
-      "image": "/images/Main/bookCover/cover8.jpg",
-      "title": "딸이 기분이 좋으면?",
+      "book_id": 8,
+      "thumbnail": "/images/Main/bookCover/cover8.jpg",
+      "book_name": "딸이 기분이 좋으면?",
       "author": "딸기모찌",
       "patch": 1
     },
     {
-      "id": 9,
-      "url": "#",
-      "image": "/images/Main/bookCover/cover9.jpg",
-      "title": "신데렐라가 잠을 못자면?",
+      "book_id": 9,
+      "thumbnail": "/images/Main/bookCover/cover9.jpg",
+      "book_name": "신데렐라가 잠을 못자면?",
       "author": "모짜렐라",
       "patch": 2
+    }
+  ],
+
+  "Find": [
+    {
+      "book_id": 1,
+      "thumbnail": "/images/Main/bookCover/cover10.jpg",
+      "book_name": "미리 메리 크리스마스",
+      "author": "함박눈사람",
+      "patch": 1
+    },
+    {
+      "book_id": 2,
+      "thumbnail": "/images/Main/bookCover/cover11.jpg",
+      "book_name": "색칠공부",
+      "author": "공룡",
+      "patch": 2
+    },
+    {
+      "book_id": 3,
+      "thumbnail": "/images/Main/bookCover/cover12.jpg",
+      "book_name": "여름에 일어나는 전쟁은?",
+      "author": "더워",
+      "patch": 1
+    },
+    {
+      "book_id": 4,
+      "thumbnail": "/images/Main/bookCover/cover13.jpg",
+      "book_name": "쿠킥쿠킥",
+      "author": "와작와작",
+      "patch": 2
+    },
+    {
+      "book_id": 5,
+      "thumbnail": "/images/Main/bookCover/cover14.jpg",
+      "book_name": "아침사과는 금사과",
+      "author": "백설공주",
+      "patch": 2
+    },
+    {
+      "book_id": 6,
+      "thumbnail": "/images/Main/bookCover/cover15.jpg",
+      "book_name": "칼바람이 부는 겨울",
+      "author": "몽몽이가",
+      "patch": 0
+    },
+    {
+      "book_id": 7,
+      "thumbnail": "/images/Main/bookCover/cover7.jpg",
+      "book_name": "논리적인 사람이 총을 쏘면?",
+      "author": "타당타당",
+      "patch": 1
+    },
+    {
+      "book_id": 8,
+      "thumbnail": "/images/Main/bookCover/cover8.jpg",
+      "book_name": "딸이 기분이 좋으면?",
+      "author": "딸기모찌",
+      "patch": 1
+    },
+    {
+      "book_id": 9,
+      "thumbnail": "/images/Main/bookCover/cover9.jpg",
+      "book_name": "신데렐라가 잠을 못자면?",
+      "author": "모짜렐라",
+      "patch": 2
+    }
+  ],
+
+  "Recommend": [
+    {
+      "book_id": 1,
+      "thumbnail": "/images/Main/bookCover/cover16.jpg",
+      "book_name": "핸드폰을 이어서 붙이면?",
+      "author": "이어폰",
+      "patch": 1
+    },
+    {
+      "book_id": 2,
+      "thumbnail": "/images/Main/bookCover/cover17.jpg",
+      "book_name": "인천 앞바다의 반댓말은?",
+      "author": "인천 엄마다",
+      "patch": 2
+    },
+    {
+      "book_id": 3,
+      "thumbnail": "/images/Main/bookCover/cover18.jpg",
+      "book_name": "소가 단체로 노래하면?",
+      "author": "단체소송",
+      "patch": 0
+    },
+    {
+      "book_id": 4,
+      "thumbnail": "/images/Main/bookCover/cover4.jpg",
+      "book_name": "음치를 위한 노래 가이드",
+      "author": "함부로 마이크 잡지마",
+      "patch": 1
+    },
+    {
+      "book_id": 5,
+      "thumbnail": "/images/Main/bookCover/cover5.jpg",
+      "book_name": "우유가 쓰러지면?",
+      "author": "아야",
+      "patch": 2
+    },
+    {
+      "book_id": 6,
+      "thumbnail": "/images/Main/bookCover/cover6.jpg",
+      "book_name": "소나무가 삐지면?",
+      "author": "칫솔",
+      "patch": 0
+    },
+    {
+      "book_id": 7,
+      "thumbnail": "/images/Main/bookCover/cover7.jpg",
+      "book_name": "논리적인 사람이 총을 쏘면?",
+      "author": "타당타당",
+      "patch": 1
     }
   ]
 }
