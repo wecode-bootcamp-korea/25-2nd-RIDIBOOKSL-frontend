@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom';
 import PatchDiscount from './PatchDiscount';
 import PatchRental from './PatchRental';
 
-const MainBookList = ({ bookBox, Title }) => {
+const MainBookList = ({ title, bookData }) => {
   return (
     <MainBookListBox>
-      <BookListTitle>{Title}</BookListTitle>
+      <BookListTitle>{title}</BookListTitle>
       <BookList>
-        {bookBox?.map(bookData => {
-          const { id, image, patch, title, author, rating } = bookData;
+        {bookData?.map((book, idx) => {
+          const { book_id, thumbnail, patch, book_name, author } = book;
           return (
-            <li key={id}>
-              <Link to={`/books/${id}`}>
+            <li key={book_id}>
+              <Link to={`/books/${book_id}`}>
                 <BookImgBox>
                   <div>
-                    <img alt="booksCover" src={image} />
+                    <img alt="booksCover" src={thumbnail} />
                   </div>
                 </BookImgBox>
                 {patch !== 0 && (
@@ -25,16 +25,10 @@ const MainBookList = ({ bookBox, Title }) => {
                   </Patch>
                 )}
                 <BookInfo>
-                  <h3>{id}</h3>
+                  <h3>{idx + 1}</h3>
                   <BookSpec>
-                    <BookTitle>{title}</BookTitle>
+                    <BookTitle>{book_name}</BookTitle>
                     <BookAuthor>{author}</BookAuthor>
-                    {rating && (
-                      <Review>
-                        <span>★★★★★</span>
-                        <span>{` ${rating}`}</span>
-                      </Review>
-                    )}
                   </BookSpec>
                 </BookInfo>
               </Link>
@@ -93,7 +87,8 @@ const BookImgBox = styled.div`
 
     img {
       display: block;
-      width: 90%;
+      width: 80px;
+      height: 150px;
       padding: 20% 0;
 
       :hover {
@@ -144,10 +139,4 @@ const Patch = styled.div`
     top: 5px;
     left: -10px;
   }
-`;
-
-const Review = styled.div`
-  padding-top: 4%;
-  font-size: 13px;
-  color: #636c73;
 `;

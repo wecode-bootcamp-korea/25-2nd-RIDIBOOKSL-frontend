@@ -7,24 +7,24 @@ import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const MainNowRelease = ({ newBook, Title }) => {
+const MainNowRelease = ({ newBook, title }) => {
   return (
     <MainReleaseList>
       <Main>
-        <Subject>{Title}</Subject>
+        <Subject>{title}</Subject>
         <BookList>
           <BookSlider {...settings}>
             {newBook?.map(bookData => {
-              const { id, image, patch, title, author } = bookData;
+              const { book_id, thumbnail, patch, book_name, author } = bookData;
               return (
-                <li key={id}>
-                  <Link to={`/product/${id}`}>
+                <li key={book_id}>
+                  <Link to={`/product/${book_id}`}>
                     <ImgBox>
-                      <img alt="newBookCover" src={image} />
+                      <img alt="newBookCover" src={thumbnail} />
                     </ImgBox>
                     {patch === 1 ? <PatchDiscount /> : <PatchRental />}
                     <BookInfo>
-                      <h3>{title}</h3>
+                      <h3>{book_name}</h3>
                       <p>{author}</p>
                     </BookInfo>
                   </Link>
@@ -54,7 +54,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 60%;
+  max-width: 1000px;
 `;
 
 const Subject = styled.h2`

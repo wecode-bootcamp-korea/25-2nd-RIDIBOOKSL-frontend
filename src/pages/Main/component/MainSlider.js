@@ -70,10 +70,10 @@ const StyledMainSlider = styled(Slider)`
   }
 
   .slick-prev {
-    left: 31%;
+    left: 31.5%;
   }
 
   .slick-next {
-    right: 31%;
+    right: 31.5%;
   }
 `;

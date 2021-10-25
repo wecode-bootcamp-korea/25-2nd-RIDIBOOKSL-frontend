@@ -7,19 +7,19 @@ import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const MainBookSlider = ({ bookBox, Title }) => {
+const MainBookSlider = ({ title, bookData }) => {
   return (
     <MainSliderBook>
-      <Subject>{Title}</Subject>
+      <Subject>{title}</Subject>
       <SliderList>
         <BookSlider {...settings}>
-          {bookBox?.map(bookData => {
-            const { id, image, patch, title, author } = bookData;
+          {bookData?.map(bookData => {
+            const { book_id, thumbnail, patch, book_name, author } = bookData;
             return (
-              <li key={id}>
-                <Link to={`/books/${id}`}>
+              <li key={book_id}>
+                <Link to={`/books/${book_id}`}>
                   <ImgBox>
-                    <img alt="newBookCover" src={image} />
+                    <img alt="newBookCover" src={thumbnail} />
                   </ImgBox>
                   {patch !== 0 && (
                     <Patch>
@@ -27,7 +27,7 @@ const MainBookSlider = ({ bookBox, Title }) => {
                     </Patch>
                   )}
                   <BookInfo>
-                    <h3>{title}</h3>
+                    <h3>{book_name}</h3>
                     <p>{author}</p>
                   </BookInfo>
                 </Link>
@@ -76,7 +76,8 @@ const ImgBox = styled.div`
   text-align: left;
 
   img {
-    width: 80%;
+    width: 120px;
+    height: 180px;
 
     :hover {
       opacity: 0.7;

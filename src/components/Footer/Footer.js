@@ -10,8 +10,12 @@ const Footer = () => {
       <Header>
         <Subject>
           <ul>
-            <li>고객센터</li>
-            <li>공지사항</li>
+            <li>
+              <a href="/">고객센터</a>
+            </li>
+            <li>
+              <a href="/">공지사항</a>
+            </li>
           </ul>
         </Subject>
         <Section>
@@ -75,6 +79,7 @@ const Footer = () => {
 export default Footer;
 
 const FooterBox = styled.section`
+  margin-top: 50px;
   color: #ffffff;
   background: #303538;
 `;
@@ -99,8 +104,12 @@ const Subject = styled.h2`
     color: white;
 
     li {
-      :hover {
-        opacity: 0.7;
+      a {
+        text-decoration: none;
+        color: white;
+        :hover {
+          opacity: 0.7;
+        }
       }
 
       ::after {
@@ -166,6 +175,7 @@ const Company = styled.div`
     border: none;
     background: #303538;
     color: #7e8992;
+    cursor: pointer;
   }
 `;
 
