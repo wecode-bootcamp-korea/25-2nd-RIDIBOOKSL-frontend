@@ -4,6 +4,7 @@ import PrivateRoute from './lib/PrivateRoute';
 import Main from './pages/Main/Main';
 import Footer from './components/Footer/Footer';
 import Nav from './components/Nav/Nav';
+import Category from './pages/Category/Category';
 
 const Routes = () => {
   return (
@@ -14,6 +15,7 @@ const Routes = () => {
         <PrivateRoute exact path="/notification" component={Main} />
         <PrivateRoute exact path="/cart" component={Main} />
         <PrivateRoute exact path="/account" component={Main} />
+        <Route exact path="/category" component={Category} />
       </Switch>
       <Footer />
     </Router>
