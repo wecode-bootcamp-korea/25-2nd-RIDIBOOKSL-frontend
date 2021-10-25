@@ -4,7 +4,7 @@ import reset from 'styled-reset';
 const GlobalStyle = createGlobalStyle`
   ${reset}
 
-	* {
+	*, html {
     box-sizing: border-box;
     font-family: 'Nanum Gothic', sans-serif;
     font-weight: 400;

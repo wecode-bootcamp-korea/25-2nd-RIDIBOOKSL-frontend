@@ -1,21 +1,36 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { useLocation, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import BookItem from './BookItem/BookItem';
 
 const ORDER_LIST = [
-  { id: 1, name: '인기순', order: '인기순' }, //order값은 나중에 고치기
-  { id: 2, name: '최신순', order: '최신순' },
-  { id: 3, name: '할인', order: '할인' },
-  { id: 4, name: '대여', order: '대여' },
+  { id: 1, name: '인기순', order: null },
+  { id: 2, name: '최신순', order: '0' },
+  { id: 3, name: '할인', order: '1' },
+  { id: 4, name: '대여', order: '2' },
 ];
 
 const BookListForm = props => {
-  const { viewDirection } = props;
-  const [selectedOrder, setSelectedOrder] = useState('인기순');
-  const [currentPage, setCurrentPage] = useState(1);
+  const history = useHistory();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
 
-  const leng = 78; //fetch받은 데이터 길이로 바꿈
+  const { bookList, viewDirection, allBooksLeng, addParams } = props;
+
+  const paramsOrder = params.has('order') ? params.get('order') : '0';
+  const paramsPage = params.has('page') ? params.get('page') : '1';
+
+  const clickOrderBtn = order => {
+    const nextParams = `?order=${order}&page=1`;
+    history.push(location.pathname + nextParams + (addParams ? addParams : ''));
+  };
+
+  const clickPageBtn = page => {
+    const nextParams = `?order=${paramsOrder}&page=${page}`;
+    history.push(
+      location.pathname + nextParams + (addParams ? `&${addParams}` : '')
+    );
+  };
 
   return (
     <>
@@ -23,8 +38,8 @@ const BookListForm = props => {
         {ORDER_LIST.map(order => (
           <Order key={order.id}>
             <OrderBtn
-              onClick={() => setSelectedOrder(order.order)}
-              selected={selectedOrder === order.order}
+              onClick={() => clickOrderBtn(order.order)}
+              selected={paramsOrder === order.order}
             >
               {order.name}
             </OrderBtn>
@@ -32,28 +47,29 @@ const BookListForm = props => {
         ))}
       </OrderList>
       <BooksWrapper viewDirection={viewDirection}>
-        <BookItem viewDirection={viewDirection} />
-        <BookItem viewDirection={viewDirection} />
-        <BookItem viewDirection={viewDirection} />
-        <BookItem viewDirection={viewDirection} />
-        <BookItem viewDirection={viewDirection} />
-        <BookItem viewDirection={viewDirection} />
-        <BookItem viewDirection={viewDirection} />
+        {bookList.map(book => (
+          <BookItem
+            key={book.book_id}
+            book={book}
+            viewDirection={viewDirection}
+          />
+        ))}
       </BooksWrapper>
-      <PagingWrapper>
-        <PagingList>
-          {[...Array(Math.ceil(leng / 20))].map((i, idx) => (
-            <NumberBtn
-              key={idx}
-              currentPage={currentPage}
-              onClick={() => setCurrentPage(idx + 1)}
-            >
-              {/* {idx + 1} */}
-              <Link to="/">{idx + 1}</Link>
-            </NumberBtn>
-          ))}
-        </PagingList>
-      </PagingWrapper>
+      {Math.ceil(allBooksLeng / 20) > 1 && (
+        <PagingWrapper>
+          <PagingList>
+            {[...Array(Math.ceil(allBooksLeng / 20))].map((i, idx) => (
+              <NumberBtn
+                key={idx}
+                currentPage={paramsPage}
+                onClick={() => clickPageBtn(idx + 1)}
+              >
+                {idx + 1}
+              </NumberBtn>
+            ))}
+          </PagingList>
+        </PagingWrapper>
+      )}
     </>
   );
 };
@@ -114,9 +130,14 @@ const PagingList = styled.ul`
 const NumberBtn = styled.li`
   display: flex;
   align-items: center;
+  padding: 0 16px;
   height: 32px;
   border: 1px solid #d1d5d9;
+  color: rgb(128, 137, 145);
+  font-size: 13px;
+  font-weight: 700;
   box-shadow: 0 1px 1px 0 rgb(210 210 210 / 30%);
+  cursor: pointer;
 
   &:first-child {
     border-radius: 3px 0 0 3px;
@@ -130,22 +151,9 @@ const NumberBtn = styled.li`
     background-color: #f2f4f5;
   }
 
-  a {
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    height: 100%;
-    color: rgb(128, 137, 145);
-    font-size: 13px;
-    font-weight: 700;
-  }
-
   &:nth-child(${({ currentPage }) => currentPage}) {
     background-color: rgb(31, 140, 230);
-
-    a {
-      color: white;
-    }
+    color: white;
   }
 `;
 
