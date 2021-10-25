@@ -2,39 +2,43 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const BookItem = props => {
-  const { viewDirection } = props;
+const PATCHES = {
+  1: (
+    <DiscountLabel>
+      10<span>%</span>
+    </DiscountLabel>
+  ),
+  2: <RentalLabel>대여</RentalLabel>,
+};
 
+const BookItem = ({ book, viewDirection }) => {
   return (
     <Book viewDirection={viewDirection}>
       <ThumbnailWrapper>
-        <Thumbnail to="/">
-          {/* <RentalLabel>대여</RentalLabel> */}
-          <DiscountLabel>
-            10<span>%</span>
-          </DiscountLabel>
-          <img src="/images/thumbnail1.jpg" alt="책 표지" />
+        <Thumbnail to={`/books/${book.book_id}`}>
+          {book.patch > 0 && PATCHES[book.patch]}
+          <img src={`${book.book_thumbnail}`} alt="책 표지" />
         </Thumbnail>
       </ThumbnailWrapper>
       <MetaDataWrapper viewDirection={viewDirection}>
         <BookTitle>
-          <Link to="/">나미야 잡화점의 기적</Link>
+          <Link to={`/books/${book.book_id}`}>{book.book_name}</Link>
         </BookTitle>
         <BookInform viewDirection={viewDirection}>
           <Author>
-            <Link to="/">히가시노 게이고</Link>
+            <Link to={`/author/${book.author_id}`}>{book.author_name}</Link>
           </Author>
           <Rating viewDirection={viewDirection}>
-            <i className="fas fa-star" /> 4.8점
-            <span>(428)</span>
+            <i className="fas fa-star" /> {book.rating.toFixed(1)}점
+            <span>({book.rating_count})</span>
           </Rating>
           <SubInform viewDirection={viewDirection}>
-            <Publisher>출판사</Publisher>
-            <Category>일본 소설</Category>
+            <Publisher>{book.book_publisher}</Publisher>
+            <Category>{book.book_category}</Category>
           </SubInform>
         </BookInform>
         <BookSummary viewDirection={viewDirection}>
-          <Link to="/">
+          <Link to={`/books/${book.book_id}`}>
             성장이란 단어보다 생존이란 단어에 익숙해진 지금 십대들의 ‘일주일’의
             표정 “좁은 방을 맴도는 걸 멈추고 다시 의자에 앉으며 말을 걸었다.
             우리 조금만 더 친해지자고. 당신의 이야기를 계속해달라고.”
@@ -45,13 +49,21 @@ const BookItem = props => {
             『내가
           </Link>
         </BookSummary>
-        <BookPrice>
+        <BookPrice viewDirection={viewDirection}>
+          {book.patch === 2 && (
+            <p>
+              대여<Price>1,500원</Price>
+            </p>
+          )}
           <p>
-            대여<Price>100원</Price>
-          </p>
-          <p>
-            구매<Price>100원</Price>
-            <Discount>(10%↓)</Discount>
+            구매
+            <Price>
+              {book.sale_price
+                ? book.sale_price.toLocaleString()
+                : book.book_price.toLocaleString()}
+              원
+            </Price>
+            {book.sale_price && <Discount>(10%↓)</Discount>}
           </p>
         </BookPrice>
       </MetaDataWrapper>
@@ -77,6 +89,7 @@ const Book = styled.div`
 const ThumbnailWrapper = styled.div`
   padding: 0 10px;
   width: 100%;
+  height: 167px;
   max-width: 150px;
 
   @media (max-width: 999px) {
@@ -108,6 +121,7 @@ const Thumbnail = styled(Link)`
 
   img {
     width: 100%;
+    max-height: 167px;
   }
 `;
 
@@ -237,7 +251,8 @@ const BookSummary = styled.div`
 `;
 
 const BookPrice = styled.div`
-  margin-top: 12px;
+  margin-top: ${({ viewDirection }) =>
+    viewDirection === 'row' ? '12px' : '8px'};
   color: rgb(102, 102, 102);
 
   p {
@@ -247,6 +262,10 @@ const BookPrice = styled.div`
       margin-left: 4px;
       font-weight: 800;
     }
+  }
+
+  @media (max-width: 999px) {
+    margin-top: 12px;
   }
 `;
 
