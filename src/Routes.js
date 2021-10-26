@@ -7,6 +7,7 @@ import Main from './pages/Main/Main';
 import Search from './pages/Search/Search';
 import Category from './pages/Category/Category';
 import BookList from './pages/BookList/BookList';
+import Author from './pages/Author/Author';
 
 const Routes = () => {
   return (
@@ -15,11 +16,12 @@ const Routes = () => {
       <Switch>
         <Route exact path="/" component={Main} />
         <Route exact path="/search" component={Search} />
+        <Route exact path="/category" component={Category} />
         <Route exact path="/category/:id" component={BookList} />
+        <Route exact path="/author/:id" component={Author} />
         <PrivateRoute exact path="/notification" component={Main} />
         <PrivateRoute exact path="/cart" component={Main} />
         <PrivateRoute exact path="/account" component={Main} />
-        <Route exact path="/category" component={Category} />
       </Switch>
       <Footer />
     </Router>
