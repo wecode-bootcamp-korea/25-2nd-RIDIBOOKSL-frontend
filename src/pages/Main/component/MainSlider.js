@@ -37,14 +37,15 @@ const settings = {
 const StyledMainSlider = styled(Slider)`
   padding: 20px 0 0 0;
   margin: 0 auto;
-  width: 95%;
+  width: 80%;
 
   img {
-    padding: 0 20px;
+    padding: 0 5px;
     border-radius: 6px;
     text-align: center;
     width: 100%;
     height: 270px;
+    border-radius: 5%;
   }
 
   .slick-prev,
@@ -70,10 +71,10 @@ const StyledMainSlider = styled(Slider)`
   }
 
   .slick-prev {
-    left: 31.5%;
+    left: 28.5%;
   }
 
   .slick-next {
-    right: 31.5%;
+    right: 28.5%;
   }
 `;

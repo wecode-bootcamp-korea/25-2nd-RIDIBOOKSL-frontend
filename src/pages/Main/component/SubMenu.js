@@ -6,7 +6,7 @@ const SubMenu = () => {
   return (
     <SubBox>
       <Category>
-        {LIST.map(list => {
+        {CATEGORY_LIST.map(list => {
           const { id, category, url } = list;
           return (
             <li key={id}>
@@ -33,22 +33,29 @@ const Category = styled.ul`
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px;
+
   li {
     margin-right: 10px;
     padding: 20px 30px 20px 0;
     top: 2px;
+
     a {
       text-decoration: none;
       color: #40474d;
+
+      :hover {
+        opacity: 0.7;
+      }
     }
   }
+
   li:nth-child(2) > a {
     color: #0077d9;
     font-weight: bold;
   }
 `;
 
-const LIST = [
+const CATEGORY_LIST = [
   { id: 1, category: <i className="fas fa-bars" />, url: '/category' },
   { id: 2, category: '일반', url: '/' },
   { id: 3, category: '로맨스', url: '#' },

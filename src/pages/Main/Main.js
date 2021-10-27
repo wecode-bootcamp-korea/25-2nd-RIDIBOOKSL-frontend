@@ -44,7 +44,7 @@ const Main = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://10.58.3.24:8000/products/main')
+    fetch('http://10.58.1.63:8000/products/main')
       .then(res => res.json())
       .then(bookBox => setBookBox(bookBox));
   }, []);
