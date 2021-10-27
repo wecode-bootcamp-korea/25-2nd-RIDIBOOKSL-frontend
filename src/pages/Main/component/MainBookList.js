@@ -9,7 +9,7 @@ const MainBookList = ({ title, bookData }) => {
     <MainBookListBox>
       <BookListTitle>{title}</BookListTitle>
       <BookList>
-        {bookData?.map((book, idx) => {
+        {bookData?.slice(0, 9).map((book, idx) => {
           const { book_id, thumbnail, patch, book_name, author } = book;
           return (
             <li key={book_id}>

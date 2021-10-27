@@ -25,18 +25,15 @@ const MainIcons = () => {
 export default MainIcons;
 
 const MainIconsBox = styled.section`
-  display: flex;
-  justify-content: center;
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 20px;
 `;
 
 const IconsList = styled.ul`
   list-style: none;
   display: flex;
   justify-content: space-between;
-  padding: 24px 13px;
-  overflow: auto;
 `;
 const Icon = styled.div`
   text-align: center;
@@ -55,8 +52,9 @@ const Icon = styled.div`
 const IconName = styled.span`
   display: flex;
   justify-content: center;
+  margin-top: 8px;
+  padding-bottom: 15px;
   font-size: 13px;
   line-height: 1.23;
   color: #525a61;
-  margin-top: 8px;
 `;
