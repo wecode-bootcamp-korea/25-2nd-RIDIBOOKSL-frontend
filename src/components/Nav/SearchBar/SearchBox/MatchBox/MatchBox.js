@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import API from '../../../../../config';
 import AuthorItem from './AuthorItem/AuthorItem';
 import BookItem from './BookItem/BookItem';
 
@@ -8,7 +9,7 @@ const MatchBox = ({ setIsBoxShow, searchWord }) => {
   const [bookList, setBookList] = useState([]);
 
   useEffect(() => {
-    fetch(`http://10.58.4.89:8000/subscribe/search?keyword=${searchWord}`, {
+    fetch(`${API.default}/subscribe/search?keyword=${searchWord}`, {
       method: 'GET',
     })
       .then(res => res.json())

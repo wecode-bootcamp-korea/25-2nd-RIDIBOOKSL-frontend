@@ -44,16 +44,7 @@ const BookItem = ({ book, viewDirection }) => {
           </SubInform>
         </BookInform>
         <BookSummary viewDirection={viewDirection}>
-          <Link to={`/books/${book.book_id}`}>
-            성장이란 단어보다 생존이란 단어에 익숙해진 지금 십대들의 ‘일주일’의
-            표정 “좁은 방을 맴도는 걸 멈추고 다시 의자에 앉으며 말을 걸었다.
-            우리 조금만 더 친해지자고. 당신의 이야기를 계속해달라고.”
-            『겨울방학』 『이제야 언니에게』 『내가성장이란 단어보다 생존이란
-            단어에 익숙해진 지금 십대들의 ‘일주일’의 표정 “좁은 방을 맴도는 걸
-            멈추고 다시 의자에 앉으며 말을 걸었다. 우리 조금만 더 친해지자고.
-            당신의 이야기를 계속해달라고.” 『겨울방학』 『이제야 언니에게』
-            『내가
-          </Link>
+          <Link to={`/books/${book.book_id}`}>책 줄거리 .... 북슬북슬 팀</Link>
         </BookSummary>
         <BookPrice viewDirection={viewDirection}>
           {book.patch === 2 && (
@@ -281,6 +272,7 @@ const Price = styled.span`
 
 const Discount = styled.span`
   color: rgb(235, 88, 71);
+  font-size: 12px;
 `;
 
 export default BookItem;
