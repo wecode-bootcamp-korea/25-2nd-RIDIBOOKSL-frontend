@@ -14,6 +14,12 @@ const MENU_LIST = [
 const Nav = () => {
   const [token, setToken] = useState(localStorage.getItem('access_token'));
 
+  const ClickLogOut = () => {
+    localStorage.removeItem('access_token');
+    setToken('');
+    alert('로그아웃 되었습니다.');
+  };
+
   return (
     <Navbar>
       <header>
@@ -30,11 +36,11 @@ const Nav = () => {
                   캐시충전
                   <i className="fas fa-coins" />
                 </Link>
-                <button onClick={() => setToken('')}>로그아웃</button>
+                <button onClick={ClickLogOut}>로그아웃</button>
               </>
             ) : (
               <>
-                <Link to="/signup">회원가입</Link>
+                <Link to="/login">회원가입</Link>
                 <Link to="/login" type="login">
                   로그인
                 </Link>
@@ -45,7 +51,7 @@ const Nav = () => {
         </Topbar>
         <Menubar>
           {MENU_LIST.map(menu => (
-            <MenuItem key={menu.id} menu={menu} token={token} />
+            <MenuItem key={menu.id} menu={menu} />
           ))}
         </Menubar>
       </header>
