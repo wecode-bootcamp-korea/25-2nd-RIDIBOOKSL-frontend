@@ -25,8 +25,8 @@ const Routes = () => {
           <PrivateRoute exact path="/notification" component={Main} />
           <PrivateRoute exact path="/cart" component={Main} />
           <PrivateRoute exact path="/account" component={Main} />
-          <Footer />
         </>
+        <Footer />
       </Switch>
     </Router>
   );
