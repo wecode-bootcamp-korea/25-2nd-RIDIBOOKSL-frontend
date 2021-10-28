@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import BookItem from './BookItem/BookItem';
 
 const ORDER_LIST = [
-  { id: 1, name: '인기순', order: null },
+  { id: 1, name: '인기순', order: '3' },
   { id: 2, name: '최신순', order: '0' },
   { id: 3, name: '할인', order: '1' },
   { id: 4, name: '대여', order: '2' },
@@ -17,18 +17,20 @@ const BookListForm = props => {
 
   const { bookList, viewDirection, allBooksLeng, addParams } = props;
 
-  const paramsOrder = params.has('order') ? params.get('order') : '0';
+  const paramsOrder = params.has('order') ? params.get('order') : '3';
   const paramsPage = params.has('page') ? params.get('page') : '1';
 
   const clickOrderBtn = order => {
-    const nextParams = `?order=${order}&page=1`;
-    history.push(location.pathname + nextParams + (addParams ? addParams : ''));
+    const nextParams = `order=${order}&page=1`;
+    history.push(
+      `${location.pathname}?${addParams ? `${addParams}&` : ''}${nextParams}`
+    );
   };
 
   const clickPageBtn = page => {
-    const nextParams = `?order=${paramsOrder}&page=${page}`;
+    const nextParams = `order=${paramsOrder}&page=${page}`;
     history.push(
-      location.pathname + nextParams + (addParams ? `&${addParams}` : '')
+      `${location.pathname}?${addParams ? `${addParams}&` : ''}${nextParams}`
     );
   };
 

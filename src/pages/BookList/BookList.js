@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import API from '../../config';
 import BookListForm from '../../components/BookListForm/BookListForm';
 
 const BookList = () => {
@@ -19,16 +20,16 @@ const BookList = () => {
   const [viewDirection, setViewDirection] = useState('row');
 
   const bookList_fetch_api =
-    `http://10.58.1.63:8000/products?menu=${selectedMainCategory / 100}` +
+    `${API.default}/products?menu=${selectedMainCategory / 100}` +
     (selectedSubCategory > 0 ? `&category=${selectedSubCategory}` : '');
   const bookList_param = params.get('order')
     ? `descending=${params.get('order')}&offset=${
         (params.get('page') - 1) * 20
       }&limit=20`
-    : 'descending=0&offset=0&limit=20';
+    : 'descending=3&offset=0&limit=20';
   const bookList_order_param = params.get('order')
     ? `descending=${params.get('order')}`
-    : 'descending=0';
+    : 'descending=3';
 
   useEffect(() => {
     window.scrollTo(0, 0);

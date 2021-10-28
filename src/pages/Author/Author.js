@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import styled from 'styled-components';
+import API from '../../config';
 import BookListForm from '../../components/BookListForm/BookListForm';
 
 const Author = () => {
@@ -10,7 +11,7 @@ const Author = () => {
   const [authorInfo, setAuthorInfo] = useState({});
   const [allBooksLeng, setAllBooksLeng] = useState(0);
 
-  const bookList_fetch_api = `http://10.58.4.245:8000/product/authors/${id}`;
+  const bookList_fetch_api = `${API.default}/products/authors/${id}`;
 
   useEffect(() => {
     fetch(`${bookList_fetch_api}`, {
@@ -48,7 +49,7 @@ const Author = () => {
           <BookLength>총 {allBooksLeng}종</BookLength>
           <BookListForm
             bookList={bookList}
-            bookviewDirection="row"
+            viewDirection="row"
             allBooksLeng={allBooksLeng}
           />
         </BookSection>
