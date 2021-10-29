@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import API from '../../config';
 
 const textList = [
   '별로에요',
@@ -15,11 +16,10 @@ const Score = () => {
 
   const goToFetch = e => {
     setClicked(e.target.id);
-    fetch(`http://10.58.7.207:8000/products/1`, {
+    fetch(`${API.detail}`, {
       method: 'POST',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.loTjeBWZ9SeXV-BcIxqOtX37AN30ROvsZl0_udeeRJU',
+        Authorization: localStorage.getItem('access_token'),
       },
       body: JSON.stringify({
         rating: e.target.id,

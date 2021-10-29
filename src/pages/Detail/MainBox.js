@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import API from '../../config';
 
 const MainBox = () => {
   const [data, setData] = useState([]);
@@ -8,8 +9,7 @@ const MainBox = () => {
     data;
 
   useEffect(() => {
-    // fetch('/data/DetailData.json')
-    fetch(`http://10.58.7.207:8000/products/1`)
+    fetch(`${API.detail}`)
       .then(res => res.json())
       .then(data => {
         setData(data.product_detail[0]);

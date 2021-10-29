@@ -1,8 +1,11 @@
-const IP = '10.58.4.219:8000';
+const IP = 'http://10.58.7.207:8000';
 
 const API = {
-  default: 'http://10.58.4.219:8000',
+  default: `${IP}`,
   login: `${IP}/login`,
+  author: `${IP}/products/authors`,
+  main: `${IP}/products/main`,
+  detail: `${IP}/products/1`,
 };
 
 export default API;

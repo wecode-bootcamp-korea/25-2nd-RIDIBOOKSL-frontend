@@ -7,14 +7,14 @@ import Score from './Score';
 import BestSeller from './BestSeller';
 import MainBox from './MainBox';
 import Author from './Author';
+import API from '../../config';
 
 const Detail = () => {
   const [data, setData] = useState([]);
   const { thumbnail, publication_date } = data;
 
   useEffect(() => {
-    fetch(`http://10.58.7.207:8000/products/1`)
-      // fetch('data/DetailData.json')
+    fetch(`${API.detail}`)
       .then(res => res.json())
       .then(data => {
         setData(data.product_detail[0]);
