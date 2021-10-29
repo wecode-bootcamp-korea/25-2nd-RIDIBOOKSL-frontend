@@ -1,0 +1,54 @@
+{
+  "product_detail": [
+    {
+      "id": 1,
+      "menu": "소설",
+      "category": "한국소설",
+      "thumbnail": "https://placekitten.com/129/625",
+      "name": "작별하자",
+      "sub_name": "적응된 무관용 안내 창구",
+      "rating": 3,
+      "translator": null,
+      "publisher": "김김 출판사",
+      "price": 14000,
+      "publication_date": "2021-10-20",
+      "patch": 0,
+      "sale_price": 12600,
+      "author_info": [
+        {
+          "name": "한강",
+          "country": "대한민국",
+          "birthdate": "1962-09-01",
+          "info_update": "2021-10-22",
+          "books": [
+            {
+              "img": "https://placekitten.com/129/625",
+              "name": "다양한 가치추가 축안녕하세요",
+              "rating": 5
+            },
+            {
+              "img": "https://placekitten.com/129/625",
+              "name": "줄어든 방향 안녕하세요옹",
+              "rating": 1
+            },
+            {
+              "img": "https://placekitten.com/129/625",
+              "name": "도망가자",
+              "rating": 2
+            },
+            {
+              "img": "https://placekitten.com/129/625",
+              "name": "줄어든 방향 안녕하세요옹",
+              "rating": 1
+            },
+            {
+              "img": "https://placekitten.com/129/625",
+              "name": "안녕하지못한 재정렬 역수 GUI",
+              "rating": 4
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
