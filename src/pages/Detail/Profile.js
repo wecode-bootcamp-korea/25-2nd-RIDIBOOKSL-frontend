@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import API from '../../config';
 
 const Profile = () => {
   const [data, setData] = useState([]);
@@ -8,7 +9,7 @@ const Profile = () => {
   const { author_id, name, country, birthdate, info_update } = data;
 
   useEffect(() => {
-    fetch('http://10.58.7.207:8000/products/1')
+    fetch(`${API.detail}`)
       // fetch('/data/DetailData.json')
       .then(res => res.json())
       .then(data => {
@@ -22,12 +23,10 @@ const Profile = () => {
       alert(
         `'${data.name}'의 신간이 출간되면 알림, 푸시, 이메일로 알려드립니다.`
       );
-      fetch(`http://10.58.7.207:8000/subscribe?author_id=${author_id}`, {
+      fetch(`${API.default}/subscribe?author_id=${author_id}`, {
         method: 'POST',
         headers: {
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.loTjeBWZ9SeXV-BcIxqOtX37AN30ROvsZl0_udeeRJU',
-          // Authorization: localStorage.getItem('access_token')
+          Authorization: localStorage.getItem('access_token'),
         },
       });
     } else {

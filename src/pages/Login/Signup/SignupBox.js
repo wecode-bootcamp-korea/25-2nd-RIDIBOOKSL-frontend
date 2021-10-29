@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 
 const { Kakao } = window;
 
-const KAKAO_LOGIN_API = 'http://10.58.4.245:8000/account/sign-in/kakao';
+const KAKAO_LOGIN_API = 'http://10.58.7.207:8000/account/sign-in/kakao';
 
 const SocialLogin = () => {
   Kakao.init(process.env.REACT_APP_KAKAO_INIT_KEY);

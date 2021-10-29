@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import SearchBar from './SearchBar/SearchBar';
 import MenuItem from './MenuItem/MenuItem';
@@ -12,12 +12,14 @@ const MENU_LIST = [
 ];
 
 const Nav = () => {
+  const history = useHistory();
   const [token, setToken] = useState(localStorage.getItem('access_token'));
 
   const ClickLogOut = () => {
     localStorage.removeItem('access_token');
     setToken('');
     alert('로그아웃 되었습니다.');
+    history.push('/');
   };
 
   return (

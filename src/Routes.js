@@ -12,6 +12,7 @@ import Notification from './pages/Notification/Notification';
 import Admin from './pages/Notification/Admin';
 import SignUp from './pages/Login/Signup/Signup';
 import Detail from './pages/Detail/Detail';
+import Cart from './pages/Cart/Cart';
 
 const Routes = () => {
   return (
@@ -26,10 +27,10 @@ const Routes = () => {
           <Route exact path="/category" component={Category} />
           <Route exact path="/category/:id" component={BookList} />
           <Route exact path="/author/:id" component={Author} />
-          <PrivateRoute exact path="/notification" component={Notification} />
-          <PrivateRoute exact path="/cart" component={Main} />
-          <PrivateRoute exact path="/account" component={Main} />
           <Route exact path="/books/:id" component={Detail} />
+          <PrivateRoute exact path="/notification" component={Notification} />
+          <PrivateRoute exact path="/cart" component={Cart} />
+          <PrivateRoute exact path="/account" component={Main} />
           <Footer />
         </>
       </Switch>

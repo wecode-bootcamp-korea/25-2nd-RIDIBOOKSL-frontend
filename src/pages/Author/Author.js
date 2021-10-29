@@ -11,7 +11,7 @@ const Author = () => {
   const [authorInfo, setAuthorInfo] = useState({});
   const [allBooksLeng, setAllBooksLeng] = useState(0);
 
-  const bookList_fetch_api = `${API.default}/products/authors/${id}`;
+  const bookList_fetch_api = `${API.author}/${id}`;
 
   useEffect(() => {
     fetch(`${bookList_fetch_api}`, {

@@ -6,6 +6,7 @@ import MainNowRelease from './component/MainNowRelease';
 import CurrentTime from './component/CurrentTime';
 import MainBookSlider from './component/MainBookSlider';
 import MainBookList from './component/MainBookList';
+import API from '../../config';
 
 const Main = () => {
   const [bookBox, setBookBox] = useState([]);
@@ -43,11 +44,11 @@ const Main = () => {
       .then(newBook => setnewBook(newBook));
   }, []);
 
-  // useEffect(() => {
-  //   fetch('http://10.58.1.63:8000/products/main')
-  //     .then(res => res.json())
-  //     .then(bookBox => setBookBox(bookBox));
-  // }, []);
+  useEffect(() => {
+    fetch(`${API.main}`)
+      .then(res => res.json())
+      .then(bookBox => setBookBox(bookBox));
+  }, []);
 
   return (
     <>
