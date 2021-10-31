@@ -17,7 +17,7 @@
 ## Technology
 - **Frontend**: `HTML/CSS` `JSX` `React(CRA)` `Styled-components` (Library: `React-router-DOM`, `React-pdf`, `React-slick`)
 - **Backend**: `Python`, `Django Web Framework`, `AWS`, `MySQL`
-- **Common**: 버전관리 `Git & GitHub`, 소통 `Slack`,  일정관리 [Trello](https://trello.com/b/mb9yJISu/mecook)
+- **Common**: 버전관리 `Git & GitHub`, 소통 `Slack`,  일정관리 [Trello](https://trello.com/b/zSVgJt0Z/%EB%A6%AC%EB%94%94%EB%B6%81%EC%8A%AC%EB%B6%81%EC%8A%ACridibooksl)
 
 ## Main Function
 - **소셜 로그인**: 카카오톡을 이용한 소셜 로그인 기능
